@@ -1,35 +1,39 @@
-import React, { useState } from "react";
+import React from "react";
 
-export default function About() {
-    const [myStyle, setMyStyle] = useState({
-        color:'black ',
-        backgroundColor:'white' 
+export default function About(props) {
+    // const [myStyle, setMyStyle] = useState({
+    //     color:'black ',
+    //     backgroundColor:'white' 
         
 
-    })
-    const [btntext, setBtntext] = useState("Enable Dark Mode")
-
-    const toggleStyle=()=>{
-        if(myStyle.color === 'black'){
-            setMyStyle({
-                color:'white',
-                backgroundColor:'black',
-                border:'1px solid white'
-            })
-            setBtntext("Enable White Mode")
-        }
-        else{
-            setMyStyle({
-                color:'black',
-                backgroundColor:'white'
-            })
-            setBtntext("Enable Dark Mode")
-        }
+    // })
+    let myStyle={
+      color: props.mode==='dark'?'white':'#232129',
+      backgroundColor: props.mode==='dark'?'#232129':'white'
     }
+    // const [btntext, setBtntext] = useState("Enable Dark Mode")
+
+    // const toggleStyle=()=>{
+    //     if(myStyle.color === 'black'){
+    //         setMyStyle({
+    //             color:'white',
+    //             backgroundColor:'black',
+    //             border:'1px solid white'
+    //         })
+    //         setBtntext("Enable White Mode")
+    //     }
+    //     else{
+    //         setMyStyle({
+    //             color:'black',
+    //             backgroundColor:'white'
+    //         })
+    //         setBtntext("Enable Dark Mode")
+    //     }
+    // }
     
   return (
     
-    <div className="conatiner"style={myStyle}>
+    <div className="conatiner"style={{color: props.mode==='dark'?'white':'#232129'}}>
         <h1 className="my-3">About us</h1>
       <div className="accordion"  id="accordionExample">
         <div className="accordion-item">
@@ -43,7 +47,7 @@ export default function About() {
               aria-expanded="true"
               aria-controls="collapseOne"
             >
-              Accordion Item #1
+             <strong>Analyse your text</strong> 
             </button>
           </h2>
           <div
@@ -52,14 +56,7 @@ export default function About() {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body" style={myStyle}>
-              <strong>This is the first item's accordion body.</strong> It is
-              shown by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              TextTool gives you a way to make a play and use your text in your work in yur own way quickly and efficiently.
             </div>
           </div>
         </div>
@@ -73,7 +70,7 @@ export default function About() {
               aria-expanded="false"
               aria-controls="collapseTwo"
             >
-              Accordion Item #2
+              <strong>Free to use</strong>
             </button>
           </h2>
           <div
@@ -83,14 +80,7 @@ export default function About() {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body" style={myStyle}>
-              <strong>This is the second item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              TextTool is a free character and word counter tol that measures character count and word count statics instantly for the text you provide even with other tools like reversing, clear text, copy, converting to uppercase&lowercase and also with speaking feature with this tool.
             </div>
           </div>
         </div>
@@ -104,7 +94,7 @@ export default function About() {
               aria-expanded="false"
               aria-controls="collapseThree"
             >
-              Accordion Item #3
+              <strong>Browser Compatible</strong>
             </button>
           </h2>
           <div
@@ -113,20 +103,12 @@ export default function About() {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body" style={myStyle}>
-              <strong>This is the third item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              This tool software works in any web such as Chrome, Firefox, Internet Explorer, Safari, Opera. It might suit to count characters and words in facebook,blogs,books, excel,document,essays,pdf etc
             </div>
           </div>
         </div>
       </div>
-      <div className="conatiner my-3"></div>
-      <button onClick={toggleStyle} type="button" class="btn btn-primary">{btntext}</button>
-    </div>
-  );
+      </div>
+
+  )
 }
